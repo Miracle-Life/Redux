@@ -3,12 +3,34 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+
+
+const initialState = [
+    'Smells like spirit',
+    'Enter Sandman'
+];
+
+function playlist(state = initialState, action) {
+    if (action.type === 'ADD_TRACK') {
+        return [
+            ...state,
+            action.payload
+        ]
+    }
+    return state;
+}
+
+const store = createStore(playlist);
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <Provider store={store}>
+            <App/>
+        </Provider>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
