@@ -11,7 +11,6 @@ function App({testStore, onAddTrack}) {
     }
     const trackInput = useRef(null);
 
-
     return (
         <div>
             <label>
