@@ -2,8 +2,8 @@ import {connect} from "react-redux";
 import {useRef} from "react";
 
 
-function App({testStore, onAddTrack}) {
-    console.log(testStore)
+function App({tracks, onAddTrack}) {
+    console.log(tracks)
     const addTrack = () => {
         console.log('addTrack', trackInput.current.value);
         onAddTrack(trackInput.current.value)
@@ -17,7 +17,7 @@ function App({testStore, onAddTrack}) {
                 <input type="text" ref={trackInput}/>
             </label>
             <button onClick={addTrack.bind(this)} className="addTrack">Add track</button>
-            <ul className="list"> {testStore.map((track, index) =>
+            <ul className="list"> {tracks.map((track, index) =>
                 <li key={index}>{track}</li>
             )}</ul>
         </div>
@@ -26,7 +26,7 @@ function App({testStore, onAddTrack}) {
 
 export default connect(
     state => ({
-        testStore: state
+        tracks: state.tracks,
     }),
     dispatch => ({
         onAddTrack: (trackName) => {
