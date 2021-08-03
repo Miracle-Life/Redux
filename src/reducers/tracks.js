@@ -11,4 +11,5 @@ export default function tracks(state = initialState, action) {
         return action.payload;
     }
     return state;
+
 }
