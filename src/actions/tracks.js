@@ -20,7 +20,6 @@ const mockApiData = [
         name: 'Nothing Else Matters'
     }
 ];
-
 export const getTracks = () => dispatch => {
     setTimeout(() => {
         console.log('I got tracks');

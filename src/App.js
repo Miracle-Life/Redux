@@ -38,7 +38,6 @@ function App({tracks, onAddTrack, onGetTracks, onFindTrack}) {
         </div>
     );
 }
-
 export default connect(
     state => ({
         tracks: state.tracks.filter(track => track.name.includes(state.filterTracks))
